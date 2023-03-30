@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../public/style.css">
+
+    <title>Show Bugs</title>
+  </head>
+  <body>
+    <div class="container">
+       
+      <h1 class="text-center text-primary mt-3 mb-3">Show List Of Bugs</h1>
+
+      <div class="card">
+        <div class="card-header">Bugs Data  </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="showBugsTable" class="table table-bordered">
+              <thead>
+                <tr>
+                    <th>Id</th>
+                  <th>Title</th>
+                  <th>Decription</th>
+                  <th>Created Time</th>
+                  <th>Created Day</th>
+                  <th>Assignee</th>
+                  <th>Status</th>
+                
+                  <th>Left  Days</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <% for (var i=0; i<bugs.length; i++){%>
+                   
+                    <%if (bugs[i].resolveStatus == "Not Resolved") { %>
+                        <tr id="rowcolor">
+                            <td><%= bugs[i].bugId %></td>
+                            <td><%= bugs[i].bugTittle %></td>
+                            <td><%= bugs[i].bugDescription %></td>
+                            <td><%= bugs[i].createdTime %></td>
+                            <td><%= bugs[i].createdDate %></td>
+                            <td><%= bugs[i].bugAssignee %></td>
+                           <td ><%= bugs[i].resolveStatus %></td>
+                            <td><%= bugs[i].leftOver %></td>
+                          </tr>
+                        <% }
+                         else {%>
+                            <tr>
+                                <td><%= bugs[i].bugId %></td>
+                                <td><%= bugs[i].bugTittle %></td>
+                                <td><%= bugs[i].bugDescription %></td>
+                                <td><%= bugs[i].createdTime %></td>
+                                <td><%= bugs[i].createdDate %></td>
+                                <td><%= bugs[i].bugAssignee %></td>
+                               <td ><%= bugs[i].resolveStatus %></td>
+                                <td><%= bugs[i].leftOver %></td>
+                              </tr>
+                       <% } %>
+
+             
+
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+<hr>
+<%- include('./addbugs.ejs');%>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script> -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+  </body>
+</html>
+
+<script src="../public/script.js"></script>

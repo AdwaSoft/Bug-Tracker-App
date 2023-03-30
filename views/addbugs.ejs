@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public//style.css" />
+    <title>Add New Bug</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 align="center">Add New Bug</h2>
+
+                <form class="postbugs" action="/bugs/addbugs" method="POST" >
+                  <!-- bugTittle input -->
+                  <div class="  col-md-12">
+                    <input
+                      type="text"
+                      id="bugTittle"
+                      class="form-control"
+                      name="bugTittle"
+                    />
+                    <label class="form-label" for="bugTittle">Bug Tittle</label>
+                  </div>
+            
+                  <!-- bugDescription input -->
+                  <div class="  col-md-12">
+                    <textarea
+                      class="form-control"
+                      id="createdTime"
+                      rows="4"
+                      name="bugDescription"
+                    ></textarea>
+                    <label class="form-label" for="bugDescription">Description</label>
+                  </div>
+            
+                  <!-- bugAssignee input -->
+                  <div class=" col-md-12">
+                    <input
+                      type="text"
+                      id="bugAssignee"
+                      class="form-control"
+                      name="bugAssignee"
+                    />
+                    <label class="form-label" for="bugAssignee">Your Name</label>
+                  </div>
+            <br>
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block col-sm-4">Register bug</button>
+                </form>
+        
+            </div>
+<div class="col-md-6">
+    <h2 align="center">Update Bug Status</h2>
+
+    <form class="postbugs" action="/bugs/updatebugs" method="POST" >
+      <!-- bugTittle input -->
+      <div class="  col-md-12">
+        <input
+          type="text"
+          id="bugId"
+          class="form-control"
+          name="bugId"
+        />
+        <label class="form-label" for="bugId">bug Id</label>
+      </div><hr>
+      <div class="  col-md-12">
+      <select class="form-select"  name="isResolved">
+        <option selected>Select Bug Status</option>
+        <option  name="isResolved" value="1">Resolved</option>
+        <option  name="isResolved" value="0">Not Resolved</option>
+       
+      </select>
+    </div>
+<br>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block col-sm-4">Change Status</button>
+    </form>
+
+</div>
+            </div>
+        </div>
+       
+
+  </body>
+</html>
